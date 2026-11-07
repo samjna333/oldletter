@@ -28,3 +28,9 @@
 .bg-obit .bg-last{margin-top:1.2em;font-size:1.1em}
 .bg-forecast p,.bg-appt p{margin:0 0 .4em}
 .bg-appt p{padding:.4em 0;border-bottom:1px dotted #CFC8B8}
+
+/* 편집장의 편지 구독 버튼 (Jetpack 구독 폼): 글자가 흰 바탕에 묻히지 않게 */
+.jetpack_subscription_widget input[type="submit"],
+.jetpack_subscription_widget button,
+#subscribe-submit button,
+.wp-block-jetpack-subscriptions button{background:#D9532F!important;color:#fff!important;border:0}
