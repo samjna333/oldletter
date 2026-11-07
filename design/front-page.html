@@ -1,0 +1,218 @@
+<title>부고란 1면 시안</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&display=swap">
+<style>
+/* 레이아웃: 신문 1면. 제호와 발행일 띠 → 톱(오늘의 부고) → 3단 → 면 안내 → 구독. 괘선은 먹 1px, 포인트는 주묵 한 색만. */
+:root{
+  --paper:#ECE8DF; --paper-2:#E2DDD2; --ink:#1B1A17; --ink-2:#5A5750; --rule:#1B1A17; --red:#A33A2E;
+  --serif:"Gowun Batang","RIDIBatang","Noto Serif KR",serif;
+  --sans:"Gowun Dodum","Pretendard","Apple SD Gothic Neo",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --paper:#1D1C18; --paper-2:#262420; --ink:#E9E4D8; --ink-2:#A9A397; --rule:#E9E4D8; --red:#D8705F; color-scheme:dark } }
+:root[data-theme="dark"]{ --paper:#1D1C18; --paper-2:#262420; --ink:#E9E4D8; --ink-2:#A9A397; --rule:#E9E4D8; --red:#D8705F; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:16px;line-height:1.75;word-break:keep-all;overflow-wrap:anywhere}
+.wrap{max-width:1080px;margin:0 auto;padding-block:20px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.sans{font-family:var(--sans);font-weight:400}
+.label{font-family:var(--sans);font-size:12px;letter-spacing:.14em;color:var(--ink-2)}
+h1,h2,h3{margin:0;font-weight:700;text-wrap:balance}
+
+/* 제호 */
+.masthead{border-top:3px solid var(--rule);border-bottom:1px solid var(--rule);padding-block:18px 12px;display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:12px}
+.masthead .ear{font-family:var(--sans);font-size:13px;color:var(--ink-2);line-height:1.5}
+.masthead .ear.r{text-align:right}
+.brand{text-align:center}
+.brand h1{font-size:clamp(56px,11vw,112px);line-height:1;letter-spacing:.06em;font-weight:700}
+.brand .tag{font-family:var(--sans);font-size:15px;letter-spacing:.32em;margin-top:8px;color:var(--ink)}
+.dateline{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--rule);padding-block:8px;font-family:var(--sans);font-size:13px;color:var(--ink-2)}
+.dateline b{color:var(--ink);font-weight:400}
+nav.sections{display:flex;gap:4px 22px;flex-wrap:wrap;padding-block:10px;border-bottom:1px solid var(--paper-2);font-family:var(--sans);font-size:14px}
+nav.sections a.on{border-bottom:2px solid var(--red)}
+
+/* 톱 */
+.top{display:grid;grid-template-columns:1.25fr 1fr;gap:36px;padding-block:28px;border-bottom:1px solid var(--rule)}
+.top > *{min-width:0}
+.kicker{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.kicker .label{color:var(--red)}
+.kicker::after{content:"";flex:1;height:1px;background:var(--paper-2)}
+.obit h2{font-size:clamp(28px,4vw,42px);line-height:1.25;margin-bottom:18px}
+.obit dl{margin:0;display:grid;grid-template-columns:5em 1fr;row-gap:6px;column-gap:14px;font-size:17px}
+.obit dt{font-family:var(--sans);color:var(--ink-2);font-size:14px;padding-top:4px}
+.obit dd{margin:0}
+.obit dd p{margin:0}
+.obit .last{margin-top:18px;font-size:17px}
+.byline{margin-top:22px;font-family:var(--sans);font-size:13px;color:var(--ink-2);display:flex;gap:14px;flex-wrap:wrap}
+.seed{margin-top:10px;padding-top:10px;border-top:1px dotted var(--ink-2);font-family:var(--sans);font-size:13px;color:var(--ink-2)}
+.seed u{text-decoration:underline dotted}
+
+.side{display:grid;gap:26px;align-content:start}
+.card h3{font-size:22px;line-height:1.35;margin-bottom:10px}
+.card p{margin:0}
+.three p{font-size:17px}
+.three .dateline-in{font-family:var(--sans);color:var(--ink-2);font-size:13px}
+.note{font-family:var(--sans);font-size:14px;color:var(--ink-2);margin-top:10px}
+.note b{color:var(--red);font-weight:400}
+
+/* 하단 3단 */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-bottom:1px solid var(--rule)}
+.cols > section{padding:24px 24px 26px;border-right:1px solid var(--paper-2);min-width:0}
+.cols > section:first-child{padding-left:0}
+.cols > section:last-child{border-right:0;padding-right:0}
+.letter p{margin:0 0 10px;font-size:16px}
+.letter .sig{font-family:var(--sans);font-size:13px;color:var(--ink-2);text-align:right;margin-top:14px}
+.appt{list-style:none;margin:0;padding:0;font-family:var(--sans);font-size:15px}
+.appt li{display:grid;grid-template-columns:3.2em 1fr;gap:8px;padding-block:7px;border-bottom:1px dotted var(--paper-2)}
+.appt li span:first-child{color:var(--red)}
+.corr{font-family:var(--sans);font-size:14px}
+.corr p{margin:0 0 8px;padding-left:1.4em;text-indent:-1.4em}
+.corr .real::before{content:"■ ";color:var(--ink)}
+.corr .fic::before{content:"□ ";color:var(--red)}
+
+/* 면 안내 + 구독 */
+.index{display:grid;grid-template-columns:repeat(3,1fr);gap:0 28px;padding-block:22px;border-bottom:1px solid var(--rule);font-family:var(--sans);font-size:14px}
+.index > div{min-width:0}
+.index dl{margin:0;display:grid;grid-template-columns:4.5em 1fr;row-gap:4px;column-gap:10px}
+.index dt{color:var(--ink-2)}
+.index dd{margin:0}
+.subscribe{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:26px 0;border-bottom:3px solid var(--rule)}
+.subscribe > *{min-width:0}
+.subscribe h3{font-size:24px;margin-bottom:4px}
+.subscribe p{margin:0;color:var(--ink-2);font-family:var(--sans);font-size:14px}
+.subscribe form{display:flex;gap:8px;flex-wrap:wrap}
+.subscribe input{font:inherit;font-family:var(--sans);font-size:15px;padding:10px 12px;border:1px solid var(--ink-2);background:var(--paper);color:var(--ink);min-width:0;width:240px;max-width:100%}
+.subscribe button{font:inherit;font-family:var(--sans);font-size:15px;padding:10px 18px;background:var(--ink);color:var(--paper);border:0;cursor:pointer}
+.subscribe .ok{display:none;color:var(--red)}
+.subscribe.sent form{display:none}.subscribe.sent .ok{display:block}
+footer{padding-block:18px;font-family:var(--sans);font-size:13px;color:var(--ink-2);line-height:1.8}
+footer p{margin:0}
+
+@media (max-width:820px){
+  .masthead{grid-template-columns:1fr;gap:6px}
+  .masthead .ear{text-align:center}
+  .top,.cols,.index{grid-template-columns:1fr}
+  .cols > section{padding:22px 0;border-right:0;border-bottom:1px solid var(--paper-2)}
+  .cols > section:last-child{border-bottom:0}
+  .subscribe{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion: no-preference){ .brand h1{transition:letter-spacing .4s} }
+</style>
+
+<div class="wrap">
+  <header class="masthead">
+    <div class="ear">창간 준비호<br>오늘의 부고 · 세 줄 뉴스 · 사물의 편지</div>
+    <div class="brand">
+      <h1>부고란</h1>
+      <div class="tag">사라지는 것들의 소식</div>
+    </div>
+    <div class="ear r">초안은 AI 기자가 쓰고<br>완성은 편집장이 합니다</div>
+  </header>
+  <div class="dateline">
+    <span>제0호 · <b>2026년 11월 7일 토요일</b></span>
+    <span>서울 · 맑음 · 아무 일도 없던 날</span>
+    <span>편집 박멀미</span>
+  </div>
+  <nav class="sections" aria-label="지면">
+    <a class="on" href="#front">1면</a><a href="#">사회면</a><a href="#">세계면</a><a href="#">경제면</a><a href="#">과학면</a><a href="#">문화면</a><a href="#">생활면</a><a href="#">인사면</a><a href="#">편집장</a>
+  </nav>
+
+  <section class="top" id="front">
+    <article class="obit">
+      <div class="kicker"><span class="label">오늘의 부고</span></div>
+      <h2>버스 토큰 별세</h2>
+      <dl>
+        <dt>고인</dt><dd>버스 토큰</dd>
+        <dt>생몰</dt><dd>1977년경 ~ 1990년대 말</dd>
+        <dt>사인</dt><dd>교통카드</dd>
+        <dt>생전</dt><dd>
+          <p>주머니에서 동전과 섞였다.</p>
+          <p>가운데 구멍으로 실에 꿰였다.</p>
+          <p>운전석 옆 통으로 떨어지며 소리를 냈다.</p>
+          <p>거스름돈을 모른다.</p>
+          <p>한 번 타면 끝났다.</p>
+          <p>내릴 때는 아무것도 요구하지 않았다.</p>
+        </dd>
+        <dt>유족</dt><dd>요금통, 동전 지갑, 먼저 간 버스 안내양</dd>
+        <dt>빈소</dt><dd>서랍 구석, 헌책 사이</dd>
+      </dl>
+      <p class="last">조문: 받지 않는다. 이미 다 탔다.</p>
+      <div class="byline"><span>최극형 기자</span><span>편집 박멀미</span></div>
+      <div class="seed">이 글이 시작된 자리 — 버스 토큰은 교통카드가 들어온 뒤 쓰이지 않게 되었다. <u>한국민족문화대백과사전</u></div>
+    </article>
+
+    <aside class="side">
+      <article class="card three">
+        <div class="kicker"><span class="label">세계면 · 세 줄 뉴스</span></div>
+        <h3>파두츠발</h3>
+        <p>리히텐슈타인은 1868년 군대를 없앴다. 그보다 두 해 전 마지막 출정에서 병사 80명이 나가 81명이 돌아왔다고 전해진다. 돌아오는 길에 친구를 하나 사귀었다. 이 나라는 그 뒤로 150년 넘게 적을 만들지 않았다. 군대가 없어서가 아니라, 데려오는 버릇 때문이다.</p>
+        <div class="byline"><span>훈세김 기자</span></div>
+      </article>
+      <article class="card">
+        <div class="kicker"><span class="label">과학면 · 일기예보</span></div>
+        <h3>1994년 11월 7일 월요일</h3>
+        <p class="sans" style="font-size:15px">서울: 현재 기온 9도.<br>오늘: 낮 동안 구름이 끼고 저녁에 개겠습니다.<br>주의보: 공중전화 앞 줄이 길어지겠습니다. 동전을 챙기십시오.<br>내일: 이미 지나갔습니다.</p>
+        <p class="note">기온은 기록 그대로. 주의보만 지어낸 것. <b>편집장 주석</b></p>
+      </article>
+    </aside>
+  </section>
+
+  <div class="cols">
+    <section class="letter">
+      <div class="kicker"><span class="label">생활면 · 사물의 편지</span></div>
+      <h3>선반 위에서</h3>
+      <p>당신에게. 저는 지금 선반 위에 있습니다. 번호표를 달았습니다. 옆에는 저와 똑같이 생긴 것들이 스물 몇 자루 서 있어서, 당신이 와도 저를 고르지 못할 수 있습니다.</p>
+      <p>비가 그치면 당신은 저를 잊습니다. 저는 비가 그친 뒤에만 버려집니다. 비 오는 날 버려진 우산을 본 적 있습니까.</p>
+      <p>오시려면 비 오는 날 오십시오. 그래야 당신이 저를 기억할 테니까요.</p>
+      <div class="sig">— 2호선 어느 열차에서 내리지 못한 우산 · 남새진 기자</div>
+    </section>
+    <section>
+      <div class="kicker"><span class="label">인사면 · 인사란</span></div>
+      <ul class="appt">
+        <li><span>◇전보</span><span>수원청개구리, 수원 → 평택 논</span></li>
+        <li><span>◇승진</span><span>남생이, 멸종위기 2급 → 천연기념물 겸임</span></li>
+        <li><span>◇퇴임</span><span>무선호출기, 후임 없음</span></li>
+        <li><span>◇휴직</span><span>공중전화 부스, 사유: 비 가림</span></li>
+      </ul>
+      <p class="note">종 이름과 등급은 기록 그대로. 발령만 지어낸 것.</p>
+    </section>
+    <section>
+      <div class="kicker"><span class="label">1면 · 정정란</span></div>
+      <div class="corr">
+        <p class="real">11월 7일 자 오늘의 부고 "버스 토큰 별세"에서 생몰 연도는 확인 뒤 바로잡습니다.</p>
+        <p class="fic">11월 7일 자 사물의 편지 "선반 위에서"의 우산은 비 오는 날 주인이 다녀갔습니다. 번호표는 아직 달려 있습니다.</p>
+        <p class="fic">지난 호 십자말풀이 가로 3번의 정답은 "삐삐"가 아니라 "호출기"로 바로잡습니다. 삐삐도 정답으로 받습니다.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="index" aria-label="면 안내">
+    <div><dl><dt>1면</dt><dd>오늘의 부고 · 특집 · 사물의 사설 · 정정란</dd><dt>사회면</dt><dd>산문시 · 공고란 · 분실물란</dd><dt>세계면</dt><dd>세 줄 뉴스</dd></dl></div>
+    <div><dl><dt>경제면</dt><dd>시세면 · 광고란</dd><dt>과학면</dt><dd>숫자 하나의 에세이 · 일기예보 · 오늘의 비역사</dd><dt>문화면</dt><dd>낱말란 · N년 전 오늘 · 세시기 · 사진 없는 사진면 · 십자말풀이 · 연재소설</dd></dl></div>
+    <div><dl><dt>생활면</dt><dd>사물의 편지 · 이달의 운세 · 편성표</dd><dt>인사면</dt><dd>인사란</dd><dt>편집장</dt><dd>편집장의 편지</dd></dl></div>
+  </div>
+
+  <section class="subscribe" id="sub">
+    <div>
+      <h3>편집장의 편지</h3>
+      <p>한 주의 지면을 돌아보는 편지를 매주 일요일 저녁에 보냅니다. 소식(消息)의 消는 사라짐, 息은 자라남입니다.</p>
+    </div>
+    <form id="subform">
+      <label for="email" class="label" style="position:absolute;left:-9999px">이메일</label>
+      <input id="email" type="email" placeholder="이메일 주소" required>
+      <button type="submit">받아 보기</button>
+      <p class="ok">시안입니다. 실제 사이트에서는 Jetpack 구독으로 연결됩니다.</p>
+    </form>
+  </section>
+
+  <footer>
+    <p>부고란 · 사라지는 것들의 소식 · bnote.kr</p>
+    <p>씨앗은 실제로 있던 것이고, 글은 지어낸 것입니다. 초안 단계에 AI 도구를 씁니다. 완성본은 편집장의 글입니다.</p>
+  </footer>
+</div>
+
+<script>
+document.getElementById('subform').addEventListener('submit',function(e){e.preventDefault();document.getElementById('sub').classList.add('sent')});
+</script>

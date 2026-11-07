@@ -3,6 +3,7 @@
 - 사이트: https://bnote.kr (카페24 매니지드 워드프레스, Uncode Child 테마)
 - Jetpack 연결 사이트 ID: 258503824
 - 연결 경로: Jetpack → WordPress.com 커넥터. 카페24 봇 차단(cupid.js)은 이 경로에 영향 없음. 명령줄 직접 호출은 차단됨.
+- 사이트 제목: 부고란 · 부제: 사라지는 것들의 소식 (2026-11-07 반영)
 - 시간대: Asia/Seoul · 날짜 형식: Y년 n월 j일 · 시간: H:i
 
 ## 카테고리 ID
