@@ -1,0 +1,30 @@
+/* 부고란 — 글 본문 강조 장치와 코너 양식. Uncode 테마 옵션 > 사용자 정의 CSS, 또는 자식 테마 style.css에 붙여 넣기. */
+
+/* 1 굵게: 서체의 굵은 굵기 그대로 (추가 CSS 없음) */
+
+/* 2 방점(傍點): 글자 위 강조 점 */
+.bg-dot{-webkit-text-emphasis:filled sesame #D9532F;text-emphasis:filled sesame #D9532F;-webkit-text-emphasis-position:over right;text-emphasis-position:over right}
+
+/* 3 형광펜: 편집장이 그은 줄. 한 편에 한 번 */
+.bg-mark{background:linear-gradient(transparent 55%,#F5E27A 55%,#F5E27A 92%,transparent 92%);padding:0 .1em}
+
+/* 4 주홍 글자: 지어낸 부분(주의보, 발령, 주석) 표시 */
+.bg-red{color:#D9532F}
+
+/* 5 괘선 상자: 명사 하나(사인, 품목) */
+.bg-box{border:1px solid currentColor;padding:1px 8px;display:inline-block;line-height:1.5}
+
+/* 공통 꼬리: 서명, 씨앗, 주석 */
+.bg-byline{margin-top:2em;font-size:.85em;color:#6E6A60}
+.bg-sig{text-align:right;color:#6E6A60}
+.bg-seed{padding-top:.8em;border-top:1px dotted #6E6A60;font-size:.85em;color:#6E6A60}
+.bg-seed a{text-decoration:underline dotted}
+.bg-note{font-size:.9em;color:#6E6A60}
+
+/* 코너 양식 */
+.bg-obit dl{display:grid;grid-template-columns:5em 1fr;row-gap:.4em;column-gap:1em;margin:0}
+.bg-obit dt{color:#6E6A60;font-size:.85em;letter-spacing:.1em;padding-top:.25em}
+.bg-obit dd{margin:0}
+.bg-obit .bg-last{margin-top:1.2em;font-size:1.1em}
+.bg-forecast p,.bg-appt p{margin:0 0 .4em}
+.bg-appt p{padding:.4em 0;border-bottom:1px dotted #CFC8B8}
