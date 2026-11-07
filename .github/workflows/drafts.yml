@@ -1,0 +1,44 @@
+name: 기자 초고 생성
+
+on:
+  workflow_dispatch:
+    inputs:
+      corner:
+        description: "코너 번호 (01~24). 비우면 seeds/inbox.json 전부"
+        required: false
+      seed:
+        description: "씨앗 한 줄"
+        required: false
+      url:
+        description: "씨앗 출처 URL"
+        required: false
+  schedule:
+    - cron: "0 21 * * 0,3"   # 월·목 06:00 KST (UTC 21:00 일·수)
+
+jobs:
+  drafts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: 초고 생성 → 검토 대기함
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          WP_URL: ${{ secrets.WP_URL }}
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: |
+          if [ -n "${{ github.event.inputs.seed }}" ]; then
+            python -m pipeline.run --corner "${{ github.event.inputs.corner }}" --seed "${{ github.event.inputs.seed }}" --url "${{ github.event.inputs.url }}"
+          else
+            python -m pipeline.run --inbox seeds/inbox.json
+          fi
+      - name: 초고 기록 보관
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: drafts
+          path: drafts/
