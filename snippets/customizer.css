@@ -1,0 +1,61 @@
+/* ===== 부고란 추가 CSS v1 (외모 > 사용자 정의하기 > 추가 CSS) ===== */
+:root{--bg-ink:#2B2924;--bg-ink2:#6E6A60;--bg-rule:#E4DED0;--bg-red:#D9532F;--bg-mark:#F5E27A;--bg-soft:#F6F2EA}
+body{word-break:keep-all}
+
+/* --- 본문 강조 장치 다섯 --- */
+.bg-dot{-webkit-text-emphasis:filled sesame var(--bg-red);text-emphasis:filled sesame var(--bg-red);-webkit-text-emphasis-position:over right;text-emphasis-position:over right}
+.bg-mark{background:linear-gradient(transparent 55%,var(--bg-mark) 55%,var(--bg-mark) 92%,transparent 92%);padding:0 .1em}
+.bg-red{color:var(--bg-red)}
+.bg-box{border:1px solid currentColor;padding:1px 8px;display:inline-block;line-height:1.5}
+
+/* --- 코너 양식 --- */
+.bg-obit dl{display:grid;grid-template-columns:5em 1fr;row-gap:.5em;column-gap:1em;margin:0}
+.bg-obit dt{color:var(--bg-ink2);font-size:.85em;letter-spacing:.1em;padding-top:.3em;font-weight:400}
+.bg-obit dd{margin:0}
+.bg-obit .bg-last{margin-top:1.2em;font-size:1.1em}
+.bg-forecast p,.bg-appt p{margin:0 0 .4em}
+.bg-appt p{padding:.45em 0;border-bottom:1px dotted var(--bg-rule)}
+.bg-ad{border:1px solid var(--bg-ink);padding:18px 22px;max-width:420px}
+.bg-ad .bg-ad__kind{font-size:.8em;letter-spacing:.2em;color:var(--bg-ink2)}
+.bg-notice{border-top:2px solid var(--bg-ink);border-bottom:1px solid var(--bg-ink);padding:14px 0}
+.bg-notice ol{margin:.6em 0 .6em 1.2em}
+.bg-notice .bg-notice__from{text-align:right}
+.bg-horoscope p{margin:0;padding:.55em 0;border-bottom:1px dotted var(--bg-rule)}
+.bg-tv p{margin:0;padding:.45em 0;border-bottom:1px dotted var(--bg-rule);display:grid;grid-template-columns:4em 1fr;gap:1em}
+.bg-dict .bg-dict__head{font-size:1.4em;font-weight:700}
+.bg-dict .bg-dict__head small{font-size:.6em;font-weight:400;color:var(--bg-ink2);margin-left:.4em}
+
+/* --- 글 꼬리: 서명, 씨앗, 주석, 기자 소개 --- */
+.bg-byline{margin-top:2em!important;font-size:.85em!important;color:var(--bg-ink2)}
+.bg-sig{text-align:right;color:var(--bg-ink2)}
+.bg-seed{padding-top:.8em;border-top:1px dotted var(--bg-ink2);font-size:.85em!important;color:var(--bg-ink2)}
+.bg-seed a{text-decoration:underline dotted}
+.bg-note{font-size:.9em!important;color:var(--bg-ink2)}
+.bg-reporter{margin-top:2.5em;padding:18px 22px;border-top:2px solid var(--bg-ink);background:var(--bg-soft)}
+.bg-reporter b{font-size:16px}
+.bg-reporter p{margin:.3em 0 0!important;font-size:14.5px!important;line-height:1.7!important;color:var(--bg-ink2)}
+.bg-reporter a{color:var(--bg-red)}
+.bg-draft-label{font-size:13px;color:var(--bg-ink2)}
+
+/* --- 발행일 띠 (홈) --- */
+.bg-dateline{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 18px;padding:10px 0;border-top:1px solid var(--bg-ink);border-bottom:1px solid var(--bg-rule);font-size:13px;letter-spacing:.04em;color:var(--bg-ink2)}
+.bg-dateline span:first-child{color:var(--bg-red)}
+@media (max-width:600px){.bg-dateline span:nth-child(3){display:none}}
+
+/* --- 카드: 코너 이름 주홍, 글쓴이 숨김, 이미지 모서리 --- */
+.t-entry-category a,.post-info .category-info a{color:var(--bg-red)!important;letter-spacing:.04em}
+.t-entry-author,.post-info .author-info{display:none!important}
+.tmb .t-entry-visual img,.tmb .t-entry-visual .t-entry-visual-cont{border-radius:4px}
+
+/* --- 글 페이지: 사이드바·댓글 숨김, 본문 가운데 좁게 --- */
+.single-post .col-widgets-sidebar,.archive .col-widgets-sidebar{display:none!important}
+.single-post .un-sidebar-layout .row-inner>.col-lg-8,.archive .un-sidebar-layout .row-inner>.col-lg-8{width:100%!important;display:block!important;float:none!important}
+.single-post .post-content{max-width:720px;margin:0 auto}
+.single-post .post-content p,.single-post .post-content dd{font-size:18px;line-height:1.9}
+.single-post .post-content figure img,.single-post .post-content .wp-block-image img{border-radius:4px}
+.single-post #comments,.single-post .comment-respond{display:none!important}
+.single-post #page-header .header-wrapper{background-color:var(--bg-soft)!important}
+
+/* --- 구독 상자 --- */
+.bg-subscribe .jetpack_subscription_widget .widgettitle,.bg-subscribe #subscribe-text{display:none}
+.jetpack_subscription_widget input[type="submit"],.jetpack_subscription_widget button,#subscribe-submit button,.wp-block-jetpack-subscriptions button{background:var(--bg-red)!important;color:#fff!important;border:0}

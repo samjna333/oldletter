@@ -1,0 +1,83 @@
+/* 부고란 — 글 본문 강조 장치와 코너 양식. Uncode 테마 옵션 > 사용자 정의 CSS, 또는 자식 테마 style.css에 붙여 넣기. */
+
+/* 1 굵게: 서체의 굵은 굵기 그대로 (추가 CSS 없음) */
+
+/* 2 방점(傍點): 글자 위 강조 점 */
+.bg-dot{-webkit-text-emphasis:filled sesame #D9532F;text-emphasis:filled sesame #D9532F;-webkit-text-emphasis-position:over right;text-emphasis-position:over right}
+
+/* 3 형광펜: 편집장이 그은 줄. 한 편에 한 번 */
+.bg-mark{background:linear-gradient(transparent 55%,#F5E27A 55%,#F5E27A 92%,transparent 92%);padding:0 .1em}
+
+/* 4 주홍 글자: 지어낸 부분(주의보, 발령, 주석) 표시 */
+.bg-red{color:#D9532F}
+
+/* 5 괘선 상자: 명사 하나(사인, 품목) */
+.bg-box{border:1px solid currentColor;padding:1px 8px;display:inline-block;line-height:1.5}
+
+/* 공통 꼬리: 서명, 씨앗, 주석 */
+.bg-byline{margin-top:2em;font-size:.85em;color:#6E6A60}
+.bg-sig{text-align:right;color:#6E6A60}
+.bg-seed{padding-top:.8em;border-top:1px dotted #6E6A60;font-size:.85em;color:#6E6A60}
+.bg-seed a{text-decoration:underline dotted}
+.bg-note{font-size:.9em;color:#6E6A60}
+
+/* 코너 양식 */
+.bg-obit dl{display:grid;grid-template-columns:5em 1fr;row-gap:.4em;column-gap:1em;margin:0}
+.bg-obit dt{color:#6E6A60;font-size:.85em;letter-spacing:.1em;padding-top:.25em}
+.bg-obit dd{margin:0}
+.bg-obit .bg-last{margin-top:1.2em;font-size:1.1em}
+.bg-forecast p,.bg-appt p{margin:0 0 .4em}
+.bg-appt p{padding:.4em 0;border-bottom:1px dotted #CFC8B8}
+
+/* 편집장의 편지 구독 버튼 (Jetpack 구독 폼): 글자가 흰 바탕에 묻히지 않게 */
+.jetpack_subscription_widget input[type="submit"],
+.jetpack_subscription_widget button,
+#subscribe-submit button,
+.wp-block-jetpack-subscriptions button{background:#D9532F!important;color:#fff!important;border:0}
+
+/* 홈 구독 상자: Jetpack 기본 제목·안내문 숨김 (상자 제목은 빌더의 '편집장의 편지'가 맡는다) */
+.bg-subscribe .jetpack_subscription_widget .widgettitle,
+.bg-subscribe #subscribe-text,
+.bg-subscribe .jetpack_subscription_widget > p:first-of-type{display:none}
+
+/* ===== 사이트 전역 (부고란 코어) ===== */
+:root{--bg-paper:#FBF8F1;--bg-ink:#2B2924;--bg-ink2:#6E6A60;--bg-rule:#E4DED0;--bg-red:#D9532F;--bg-mark:#F5E27A}
+body, .main-container, .row-container .row, .box-container{background-color:var(--bg-paper)}
+body{color:var(--bg-ink);word-break:keep-all}
+
+/* 발행일 띠 */
+.bg-dateline{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 18px;padding:10px 0;border-top:1px solid var(--bg-ink);border-bottom:1px solid var(--bg-rule);font-size:13px;letter-spacing:.04em;color:var(--bg-ink2)}
+.bg-dateline span:first-child{color:var(--bg-red)}
+@media (max-width:600px){.bg-dateline span:nth-child(3){display:none}}
+
+/* 카드 라벨(코너 이름)은 주홍 */
+.tmb .t-entry-category a, .t-entry-category a, .category-info a{color:var(--bg-red)!important;letter-spacing:.06em}
+/* 카드 이미지 모서리 살짝 */
+.tmb .t-entry-visual img{border-radius:4px}
+
+/* 글 페이지: 사이드바 숨기고 본문 폭 좁게 */
+.single-post .row-container .col-widgets-sidebar, .single-post .widget-container{display:none!important}
+.single-post .post-content{max-width:720px;margin-left:auto;margin-right:auto}
+.single-post .main-container .row-parent .col-lg-8,.single-post .main-container .row-parent .col-lg-9{width:100%!important}
+.single-post .post-content p, .single-post .post-content dd{font-size:18px;line-height:1.9}
+.single-post .post-content .wp-block-image img, .single-post .post-content figure img{border-radius:4px}
+
+/* 댓글 영역 숨김 */
+.single-post .post-after .comments-area, .single-post #comments, .comment-respond{display:none!important}
+
+/* 기자 소개 상자 */
+.bg-reporter{margin-top:3em;padding:20px 22px;border-top:2px solid var(--bg-ink);background:#F3EEE3}
+.bg-reporter__name{font-weight:700;font-size:17px}
+.bg-reporter__desc{font-size:15px;color:var(--bg-ink2);margin-top:4px}
+.bg-reporter__desc p{margin:0;font-size:15px!important;line-height:1.7!important}
+.bg-reporter__more{display:inline-block;margin-top:8px;font-size:14px;color:var(--bg-red)!important}
+
+/* 초고 라벨 (검토 대기 글) */
+.bg-draft-label{font-size:13px;color:var(--bg-ink2)}
+
+/* 홈 섹션 제목 */
+.bg-section-title h3, h3.bg-section-title{display:flex;align-items:center;gap:12px}
+.bg-section-more a{font-size:14px;color:var(--bg-red)!important}
+
+/* 구독 상자 */
+.bg-subscribe input[type="email"]{background:#fff}
