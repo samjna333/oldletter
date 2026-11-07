@@ -16,7 +16,7 @@ def render_post(corner_no: str, drafts: list[dict], lint_results: list[list[str]
         parts.append(f'<!-- wp:paragraph {{"className":"bg-draft-label"}} -->\n<p class="bg-draft-label"><strong>초고 {tag}</strong> · {d["title"]}'
                      + (f' · <span class="bg-red">검사: {", ".join(probs)}</span>' if probs else "") + "</p>\n<!-- /wp:paragraph -->")
         parts.append("<!-- wp:html -->\n" + d["body_html"] + "\n<!-- /wp:html -->")
-        parts.append(f'<!-- wp:paragraph {{"className":"bg-byline"}} -->\n<p class="bg-byline">{SIGNATURE[reporter]} / 편집 박멀미</p>\n<!-- /wp:paragraph -->')
+        parts.append(f'<!-- wp:paragraph {{"className":"bg-byline"}} -->\n<p class="bg-byline">{SIGNATURE[reporter]}</p>\n<!-- /wp:paragraph -->')
         parts.append(f'<!-- wp:paragraph {{"className":"bg-seed"}} -->\n<p class="bg-seed">이 글이 시작된 자리 — {d["seed_line"]} <a href="{seed_url}">출처</a></p>\n<!-- /wp:paragraph -->')
         if d.get("editor_note"):
             parts.append(f'<!-- wp:paragraph {{"className":"bg-note"}} -->\n<p class="bg-note">편집장 주석: {d["editor_note"]}</p>\n<!-- /wp:paragraph -->')
