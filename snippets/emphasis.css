@@ -34,3 +34,8 @@
 .jetpack_subscription_widget button,
 #subscribe-submit button,
 .wp-block-jetpack-subscriptions button{background:#D9532F!important;color:#fff!important;border:0}
+
+/* 홈 구독 상자: Jetpack 기본 제목·안내문 숨김 (상자 제목은 빌더의 '편집장의 편지'가 맡는다) */
+.bg-subscribe .jetpack_subscription_widget .widgettitle,
+.bg-subscribe #subscribe-text,
+.bg-subscribe .jetpack_subscription_widget > p:first-of-type{display:none}
